@@ -5,10 +5,11 @@ import FormNote, { FormValueState } from "./FormNote";
 import Modal from "../../components/Modal";
 import { NotesService } from "../../services/notes/note-service";
 import { Note } from "../../services/notes/types";
-import { Container, FilterContainer } from "./styles";
+import { Container } from "./styles";
 import { Context } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading";
+import Filters from "../../components/Filters";
 
 function Home() {
   const [filter, setFilter] = useState("");
@@ -81,6 +82,13 @@ function Home() {
     })();
   }, []);
 
+  const handleFilter = (filter: string | null, sortUrgent: boolean | null) => {
+    if (filter != null)
+      setFilter(filter);
+    if (sortUrgent != null)
+      setPriority(sortUrgent);
+  }
+
   useEffect(() => {
     if (!authenticated) navigate("/");
   }, [authenticated]);
@@ -117,15 +125,8 @@ function Home() {
           <FormNote handleSubmit={editNote} note={noteEdit} />
         </Modal>
       )}
-      <FilterContainer>
-        <label>Filtro</label>
-        <input onChange={(e) => setFilter(e.target.value)}></input>
-        <label>Urgente</label>
-        <input
-          type={"checkbox"}
-          onChange={(e) => setPriority(e.target.checked)}
-        ></input>
-      </FilterContainer>
+      <Filters handleFilter={handleFilter}>
+      </Filters>
       <Container>
         {notes
           .filter(filterCode)

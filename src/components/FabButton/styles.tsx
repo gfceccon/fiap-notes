@@ -29,7 +29,7 @@ export const FabButtonStyled = styled.button<PropsFab>`
     color: var(--white);
     background-color: #ed145b;
     box-shadow: 2px 10px 10px #0009;
-    ${(props) => (props.position === "left" ? "transform: scale(2) translateX(10px) translateY(-10px);" : "transform: scale(2) translateX(-10px) translateY(-10px);")}
+    ${(props) => (props.position === "left" ? "transform: scale(2) translateX(12px) translateY(-12px);" : "transform: scale(2) translateX(-12px) translateY(-1px);")}
   }
 
   span {

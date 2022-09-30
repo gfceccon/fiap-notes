@@ -7,6 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     --white: #EEEEEE;
     --gray: #CCC;
     --bgPrimary: #00000099;
+    --filterBackground: #444;
     --overlayLight: #00000033;
     --whiteTransparent: #FFFC;
     --black: #111;
