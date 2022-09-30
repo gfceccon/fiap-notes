@@ -8,20 +8,24 @@ import React, {
 import Button from "../../../components/Button";
 import Checkbox from "../../../components/Checkbox";
 import { Form } from "./styles";
+import { Note } from "../../../services/notes/types";
 
 export interface FormValueState {
+  id?: number | null;
   text: string;
   urgent: boolean;
 }
 
 interface FormNoteProps {
+  note?: Note,
   handleSubmit: (payload: FormValueState) => void;
 }
 
-function FormNote({ handleSubmit }: FormNoteProps) {
+function FormNote({ handleSubmit, note }: FormNoteProps) {
   const [formValues, setFormValues] = useState<FormValueState>({
-    text: "",
-    urgent: false,
+    id: note?.id || null,
+    text: note?.text || "",
+    urgent: note?.urgent || false,
   });
 
   const handleChangeUrgent = useCallback(() => {

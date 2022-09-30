@@ -10,3 +10,10 @@ export const Container = styled.section`
   flex-wrap: wrap;
   align-items: flex-start;
 `;
+
+export const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+`;

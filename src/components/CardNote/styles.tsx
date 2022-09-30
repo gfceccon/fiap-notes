@@ -38,6 +38,16 @@ export const Container = styled.article`
     cursor: pointer;
     transition: 0.3s;
   }
+  
+  .material-icons.edit {
+    position: absolute;
+    bottom: 5px;
+    right: 40px;
+
+    font-size: 32px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
 
   .material-icons:not(#priority):hover  {
     color: #333;
